@@ -84,3 +84,5 @@ D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.csproj.CopyComplete
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.pdb
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Dapper.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Dapper.xml
