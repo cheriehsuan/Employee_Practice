@@ -19,7 +19,7 @@ namespace practice_0004.Models
 
         [Display(Name = "Hire Date")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
-        public DateTime Hire_date { get; set; }
+        public DateTime Hire_date { get; set; } = DateTime.Now;
 
         public string City { get; set; }
 
@@ -28,7 +28,7 @@ namespace practice_0004.Models
         public int salary { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDay { get; set; }
+        public DateTime BirthDay { get; set; } =  DateTime.Now;
 
         public int Age { get; set; }
 

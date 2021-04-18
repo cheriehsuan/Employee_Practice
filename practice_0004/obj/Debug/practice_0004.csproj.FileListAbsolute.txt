@@ -51,6 +51,8 @@ D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\rosly
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\roslyn\VBCSCompiler.exe
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\roslyn\VBCSCompiler.exe.config
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Antlr3.Runtime.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Dapper.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\DocumentFormat.OpenXml.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Microsoft.Web.Infrastructure.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Newtonsoft.Json.dll
@@ -62,6 +64,8 @@ D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Syste
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.WebPages.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.WebPages.Razor.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\WebGrease.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Dapper.xml
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\DocumentFormat.OpenXml.xml
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.Helpers.xml
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.Mvc.xml
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.Optimization.xml
@@ -79,12 +83,8 @@ D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\zh-Ha
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\zh-Hant\System.Web.WebPages.resources.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
-D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.csprojAssemblyReference.cache
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.csproj.CoreCompileInputs.cache
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.csproj.CopyComplete
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.pdb
-D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Dapper.dll
-D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\Dapper.xml
-D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\DocumentFormat.OpenXml.dll
-D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\DocumentFormat.OpenXml.xml
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.csprojAssemblyReference.cache
