@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<practice_0004.Models.EmployeeModel>
 
-
 @{
     ViewBag.Title = "Index";
+
+    ViewBag.Type= "V";
 }
 @if (TempData["message"] != null)
 {
@@ -63,8 +64,8 @@
                 </td>*@
             <td>
                 @Html.ActionLink("Edit", "AddOrEdit", new { Emp_ID = item.Emp_ID }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Details", "AddOrEdit", new { Emp_ID = item.Emp_ID, ViewBag.Type }) |
+                @Html.ActionLink("Delete", "Delete", new { Emp_ID = item.Emp_ID })
             </td>
         </tr>
     }

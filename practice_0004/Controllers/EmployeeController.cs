@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Newtonsoft.Json;
 using practice_0004.Dapper;
 using practice_0004.method;
 using practice_0004.Models;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,7 +24,7 @@ namespace practice_0004.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddOrEdit(string Emp_ID)
+        public ActionResult AddOrEdit(string Emp_ID, string type = null)
         {
             //publisher
             List<SelectListItem> items = new List<SelectListItem>();
@@ -35,6 +37,7 @@ namespace practice_0004.Controllers
             if (string.IsNullOrEmpty(Emp_ID))
             {
                 model.EmployeeList = new EmployeeModel();
+                Session["Type"] = "A";
             }
             else
             {
@@ -42,7 +45,12 @@ namespace practice_0004.Controllers
                 dynamicParameters.Add("@EmployeeID", Emp_ID);
                 //return View(DapperORM.ReturnList<EmployeeModel>("EmployeeViewByEmpID", dynamicParameters).FirstOrDefault<EmployeeModel>());
                 model.EmployeeList = DapperORM.ReturnList<EmployeeModel>("EmployeeViewByEmpID", dynamicParameters).FirstOrDefault<EmployeeModel>();
+                Session["Type"] = "U";
             }
+
+            if(!string.IsNullOrEmpty(type))
+                Session["Type"] = "V";
+
 
             return View(model);
         }
@@ -56,16 +64,36 @@ namespace practice_0004.Controllers
 
             if (InfoNoError(model))
             {
-                if (Emp_idIsExist(model.EmployeeList.Emp_ID))
+                if (Emp_idIsExist(model.EmployeeList.Emp_ID) && Session["Type"] == "A")
                 {
                     model.EmployeeList.Emp_ID = string.Empty;
                     TempData["message"] = "Employee ID 已存在，請更換!";
+
+                    ModelState.Clear();
+
                     return View(model);
                 }
                 else
                 {
-                    TempData["message"] = "新增成功!";
-                    return RedirectToAction("Index", "Employee");
+                    if (AddOrEditSuccessful(model))
+                    {
+                        if(Session["Type"] == "A")
+                            TempData["message"] = "新增成功!";
+                        else
+                            TempData["message"] = "更新成功!";
+                        return RedirectToAction("Index", "Employee");
+                    }
+                    else
+                    {
+                        model.EmployeeList.Emp_ID = string.Empty;
+                        TempData["message"] = "Error!";
+
+                        ModelState.Clear();
+
+                        return View(model);
+
+                    }
+                   
                 }
 
             }
@@ -76,6 +104,20 @@ namespace practice_0004.Controllers
             }
             
 
+        }
+
+        public ActionResult Delete(string Emp_ID)
+        {
+            if (DeleteSuccessful(Emp_ID))
+            {
+                TempData["message"] = "刪除成功!";
+            }
+            else
+            {
+                TempData["message"] = "Error!";
+            }
+
+            return RedirectToAction("Index");
         }
 
         private void PublisherList(List<SelectListItem> items)
@@ -153,6 +195,79 @@ namespace practice_0004.Controllers
             }
 
             return Exist;
+        }
+
+        public bool AddOrEditSuccessful(EmployeeModelView model)
+        {
+            bool result;
+
+            using (var client = new HttpClient())
+            {
+
+                var json = JsonConvert.SerializeObject(model);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["ApiRoute"].ToString());
+
+                var responseTask = client.PostAsync("EmployeeAPI/", data);
+                responseTask.Wait();
+
+                var R = responseTask.Result;
+                if (R.IsSuccessStatusCode)
+                {
+                    //var readTask = result.Content.ReadAsAsync<IList<PersonAPI0001ViewMode>>();
+                    var readTask = R.Content.ReadAsStringAsync();
+                    readTask.Wait();
+
+                    result = bool.Parse(readTask.Result);
+
+
+                }
+                else //web api sent error response
+                {
+
+                    result = false;
+
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+
+            return result;
+        }
+
+        public bool DeleteSuccessful(string emp_id)
+        {
+            bool result;
+
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["ApiRoute"].ToString());
+
+                var responseTask = client.DeleteAsync("EmployeeAPI/"+ emp_id);
+                responseTask.Wait();
+
+                var R = responseTask.Result;
+                if (R.IsSuccessStatusCode)
+                {
+                    //var readTask = result.Content.ReadAsAsync<IList<PersonAPI0001ViewMode>>();
+                    var readTask = R.Content.ReadAsStringAsync();
+                    readTask.Wait();
+
+                    result = bool.Parse(readTask.Result);
+
+
+                }
+                else //web api sent error response
+                {
+
+                    result = false;
+
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+
+            return result;
         }
     }
 }
