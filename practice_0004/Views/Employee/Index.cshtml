@@ -4,6 +4,13 @@
 @{
     ViewBag.Title = "Index";
 }
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+    </script>
+}
 
 <h2>Employee List</h2>
 

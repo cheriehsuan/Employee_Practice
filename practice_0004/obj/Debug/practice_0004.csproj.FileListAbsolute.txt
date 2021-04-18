@@ -87,4 +87,13 @@ D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.csproj.CopyComplete
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.pdb
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Net.Http.Formatting.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.Http.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Net.Http.Formatting.xml
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.Http.xml
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\zh-Hant\System.Web.Http.resources.dll
 D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\obj\Debug\practice_0004.csprojAssemblyReference.cache
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.Http.WebHost.dll
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\System.Web.Http.WebHost.xml
+D:\Other\VisualStudio_practice\ASP.NET_MVC\practice_0004\practice_0004\bin\zh-Hant\System.Web.Http.WebHost.resources.dll

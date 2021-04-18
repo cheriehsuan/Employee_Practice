@@ -34,7 +34,7 @@ namespace practice_0004.Models
 
         public string Address { get; set; }
 
-        [Display(Name = "Pub Name")]
+        [Display(Name = "Publisher Name")]
         public string Pub_Name { get; set; }
 
     }

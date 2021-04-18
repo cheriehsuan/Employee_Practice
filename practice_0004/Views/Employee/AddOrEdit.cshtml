@@ -12,14 +12,29 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 }
 
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+    </script>
+}
+
 <script type="text/javascript">
     $(function () {
-
         //$('#age').css('color', 'red');
-        if (!$("#hiddenEmpID").val())
+        if (!$("#Emp_id").val())
             $("#button").val('Create');
-        else
+        else {
             $("#button").val('Save');
+            $('#Emp_id').prop('readonly', true);
+        }
+
+        var list = $('#ddlPublisherItems').val().split(';');
+        $('#City').val(list[1]);
+        $('#Country').val(list[3]);
+
+        $('#Emp_id').css('ime-mode', 'disabled');
 
         $("#age, #salary").keypress(function (e) {
             if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -29,6 +44,12 @@
         $('.datepicker').datepicker({
             format: 'yyyy/mm/dd',
             autoclose: true
+        });
+
+        $('#ddlPublisherItems').change(function () {
+            var list = $('#ddlPublisherItems').val().split(';');
+            $('#City').val(list[1]);
+            $('#Country').val(list[3]);
         });
     });
 
@@ -40,12 +61,9 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
     <div class="form-horizontal">
         <h4>基本資料</h4>
         <hr />
-        @Html.HiddenFor(model => model.EmployeeList.Emp_ID, new { @id = "hiddenEmpID", @class = "form-control", @Value = string.IsNullOrEmpty(@Model.EmployeeList.Emp_ID) ? string.Empty : @Model.EmployeeList.Emp_ID })
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @*<div class="form-group">
                 @Html.LabelFor(model => model.Emp_ID, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -53,6 +71,14 @@
                     @Html.ValidationMessageFor(model => model.Emp_ID, "", new { @class = "text-danger" })
                 </div>
             </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeList.Emp_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployeeList.Emp_ID, new { htmlAttributes = new { @id = "Emp_id", @class = "form-control", @maxlength = "9", @onpaste = "return false", @ondragenter = "return false", @oncontextmenu = "return false" } })
+                @Html.ValidationMessageFor(model => model.EmployeeList.Emp_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.EmployeeList.FName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -110,12 +136,13 @@
             </div>
         </div>
 
-        <h4>駐點資料</h4>
+        <h4>出版社</h4>
 
         <div class="form-group">
             @Html.LabelFor(model => model.EmployeeList.Pub_Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmployeeList.Pub_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.PublisherItems, Model.PublisherItems, new { @id = "ddlPublisherItems", @class = "form-control" })
+                @*@Html.EditorFor(model => model.EmployeeList.Pub_Name, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.EmployeeList.Pub_Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -123,7 +150,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmployeeList.City, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmployeeList.City, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.EditorFor(model => model.EmployeeList.City, new { htmlAttributes = new { @id = "City", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.EmployeeList.City, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -131,7 +158,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmployeeList.Country, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmployeeList.Country, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.EditorFor(model => model.EmployeeList.Country, new { htmlAttributes = new { @id = "Country", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.EmployeeList.Country, "", new { @class = "text-danger" })
             </div>
         </div>
