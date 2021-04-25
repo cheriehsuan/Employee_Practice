@@ -1,5 +1,4 @@
-<<<<<<< HEAD
 Branch_test LA
-=======
 This is from Branch test
->>>>>>> beed607d11cf8d334b886f027c8e34dbe33fb534
+
+NEW TEXTLINE
